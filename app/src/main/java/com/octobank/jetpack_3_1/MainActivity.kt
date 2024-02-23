@@ -14,9 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
 import com.octobank.jetpack_3_1.domain.usecases.AppEntryUseCases
 import com.octobank.jetpack_3_1.presentation.onboarding.OnBoardingScreen
+import com.octobank.jetpack_3_1.presentation.onboarding.OnBoardingViewModel
 import com.octobank.jetpack_3_1.ui.theme.NewsAppTheme
 import com.octobank.jetpack_3_1.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +32,7 @@ class MainActivity : ComponentActivity() {
     lateinit var appEntryUseCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+      //  installSplashScreen()
         lifecycleScope.launch {
             appEntryUseCases.readAppEntry().collect {
                 Log.d("Test", it.toString())
@@ -41,7 +43,10 @@ class MainActivity : ComponentActivity() {
                 dynamicColor = false
             ) {
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
-                    OnBoardingScreen()
+                    val viewModel:OnBoardingViewModel = hiltViewModel()
+                    OnBoardingScreen(
+                        event = viewModel::onEvent
+                    )
                 }
             }
         }
