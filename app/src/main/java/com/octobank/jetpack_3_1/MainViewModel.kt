@@ -1,13 +1,12 @@
 package com.octobank.jetpack_3_1
 
 
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.octobank.jetpack_3_1.domain.usecases.AppEntryUseCases
+import com.octobank.jetpack_3_1.domain.usecases.app_entry.AppEntryUseCases
 import com.octobank.jetpack_3_1.presentation.nvgraph.Route
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn

@@ -9,6 +9,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.octobank.jetpack_3_1.ui.theme.WhiteGray
 
@@ -32,7 +33,7 @@ fun NewsButton(
         )
     }
 }
-
+@Preview
 @Composable
 fun NewsTextButton(
     text: String,

@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'com.octobank.jetpack_3_1'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.octobank.jetpack_3_1"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -29,17 +29,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.7'
+        kotlinCompilerExtensionVersion '1.5.10'
     }
     packagingOptions {
         resources {
@@ -57,7 +57,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
-    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation platform("androidx.compose:compose-bom:2024.02.01")
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
@@ -65,10 +65,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation platform("androidx.compose:compose-bom:2024.02.01")
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.ui:ui-tooling-preview")
 
 
     //Splash Api
@@ -79,12 +82,13 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
     //Dagger Hilt
-    implementation "com.google.dagger:hilt-android:2.45"
-    kapt "com.google.dagger:hilt-compiler:2.45"
+    implementation "com.google.dagger:hilt-android:2.49"
+    kapt "com.google.dagger:hilt-compiler:2.49"
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Kotlinx Serialization
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
@@ -101,4 +105,9 @@ dependencies {
 
     //Accompanist
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta"
+
+    //Paging 3
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-compose:3.2.0-rc01"
 }

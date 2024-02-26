@@ -34,11 +34,11 @@ fun NavGraph(
            }
 
         navigation(
-            route = Route.NewsNavigatorScreen.route,
-            startDestination = Route.NewsNavigatorScreen.route
+            route = Route.NewsNavigation.route,
+            startDestination = Route.NewsNavigation.route
         ){
             composable(
-                route = Route.NewsNavigatorScreen.route
+                route = Route.NewsNavigation.route
             ){
              Text(text = "News")
             }

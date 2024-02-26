@@ -1,4 +1,4 @@
-package com.octobank.jetpack_3_1.domain.usecases
+package com.octobank.jetpack_3_1.domain.usecases.app_entry
 
 import com.octobank.jetpack_3_1.domain.manager.LocalUserManager
 import kotlinx.coroutines.flow.Flow
