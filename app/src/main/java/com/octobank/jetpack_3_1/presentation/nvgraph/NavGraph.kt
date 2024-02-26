@@ -1,26 +1,49 @@
 package com.octobank.jetpack_3_1.presentation.nvgraph
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.ActivityNavigator
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+import com.octobank.jetpack_3_1.presentation.onboarding.OnBoardingScreen
+import com.octobank.jetpack_3_1.presentation.onboarding.OnBoardingViewModel
+
 
 @Composable
 fun NavGraph(
-    //startDestination: String,
+    startDestination: String,
 ) {
-//val navController = rememberNavController()
+    val navController = rememberNavController()
 
-/*    HavHost(navController = navController,startDestination = startDestination){
+    NavHost(navController = navController, startDestination = startDestination) {
+           navigation(
+               route = Route.AppStartNavigation.route,
+               startDestination = Route.OnBoardingScreen.route
+           ){
+               composable(
+                   route = Route.OnBoardingScreen.route
+               ){
+                   val viewModel: OnBoardingViewModel = hiltViewModel()
+                   OnBoardingScreen(
+                       event = viewModel::onEvent
+                   )
+               }
+
+           }
+
         navigation(
-            route = Route.AppStartNavigation.route,
-            startDestination = Route.OnBoardingScreen.route
+            route = Route.NewsNavigatorScreen.route,
+            startDestination = Route.NewsNavigatorScreen.route
         ){
             composable(
+                route = Route.NewsNavigatorScreen.route
+            ){
+             Text(text = "News")
+            }
 
-            )
         }
-    }*/
+
+    }
 }
